@@ -56,10 +56,14 @@ public class Bola extends GOval {
 			noHaChocado = false;
 		}else if (auxiliar == null){ //si vale null, es que no había nada de ahí
 
-		}else { //suponemos que es un ladrillo
+		}else if (auxiliar instanceof Ladrillo){ //verificamos si es un ladrillo
+			if (auxiliar.getX() + getHeight() == posy || auxiliar.getY() == posy){
+				dy = dy * -1;
+			}
+			else if (auxiliar.getX() + getWidth() == posx || auxiliar.getY() == posx){
+				dy = dy * -1;
+			}
 			ark.remove(auxiliar);
-			dy = dy * -1;
-			dx = dx * -1;
 			noHaChocado = false;
 		}
 		return noHaChocado;
